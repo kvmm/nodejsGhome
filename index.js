@@ -30,8 +30,8 @@ server.post('/getDictionaryAPI', (req, res) => {
       console.log('---' + error);
     else {
       console.log(body)
-      // var list = body;
-      //  if (list && list.length >= 1) {
+       var list = body;
+        if (list && list.length >= 1) {
       //    var wordList = [];
       //    for (item in list) {
       //      var info = list[item];
