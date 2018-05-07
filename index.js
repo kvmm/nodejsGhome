@@ -38,7 +38,7 @@ server.post('/getDictionaryAPI', (req, res) => {
         //      wordList.push(info);
         //    }
         //res.setHeader('Content-Type','application/json');
-        console.log('if part');
+        console.log('if part--',word);
         //res.setHeader('content-type','application/json');
         return res.json({
           speech: 'Invaild PNR Number',
