@@ -11,7 +11,7 @@ server.use(bodyParser.urlencoded({
 server.use(bodyParser.json());
 
 
-server.get('/getDictionaryAPI', (req, res) => {
+server.post('/getDictionaryAPI', (req, res) => {
   //console.log(req.headers)
   var type = req.headers.type;
   var word = req.headers.word;
