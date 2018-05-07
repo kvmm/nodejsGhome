@@ -13,9 +13,9 @@ server.use(bodyParser.json());
 
 server.post('/getDictionaryAPI', (req, res) => {
   //console.log(req.headers)
-  var type = req.headers.type;
+  var type = 'synonyms';
   //var word = req.headers.word;
-  var word = 'synonyms';
+  var word = req.headers.word;
   var service = {
     method: 'GET',
     url: 'https://od-api.oxforddictionaries.com:443/api/v1/entries/en/' + word + '/' + type,
