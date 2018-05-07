@@ -30,30 +30,31 @@ server.post('/getDictionaryAPI', (req, res) => {
       console.log('---' + error);
     else {
       //console.log(body)
-       var list = body;
-        if (list && list.length >= 1) {
-      //    var wordList = [];
-      //    for (item in list) {
-      //      var info = list[item];
-      //      wordList.push(info);
-      //    }
-         //res.setHeader('Content-Type','application/json');
-          console.log('if part');
-         //res.setHeader('content-type','application/json');
-         return res.json({speech: 'Invaild PNR Number',
-         displayText: 'Invaild PNR Number',
-          source:'getDictionaryAPI'
-                 }
-         );
-       }else{
-         console.log('else');
-         res.setHeader('content-type','application/json')
-         return res.json({speech: 'Invaild PNR Number',
-         displayText: 'Invaild PNR Number',
-          source:'getDictionaryAPI'
-                 });
-       }
-      
+      var list = body;
+      if (list && list.length >= 1) {
+        //    var wordList = [];
+        //    for (item in list) {
+        //      var info = list[item];
+        //      wordList.push(info);
+        //    }
+        //res.setHeader('Content-Type','application/json');
+        console.log('if part');
+        //res.setHeader('content-type','application/json');
+        return res.json({
+          speech: 'Invaild PNR Number',
+          displayText: 'Invaild PNR Number',
+          source: 'getDictionaryAPI'
+        });
+      } else {
+        console.log('else');
+        res.setHeader('content-type', 'application/json')
+        return res.json({
+          speech: 'Invaild PNR Number',
+          displayText: 'Invaild PNR Number',
+          source: 'getDictionaryAPI'
+        });
+      }
+
       //res.send( body  );
     }
   });
