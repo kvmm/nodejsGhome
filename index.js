@@ -39,8 +39,8 @@ server.post('/getDictionaryAPI', (req, res) => {
          }
          //res.setHeader('Content-Type','application/json');
          res.setHeader('content-type','application/json')
-         return res.send(
-           body
+         return res.send({speech: 'Invaild PNR Number',
+         displayText: 'Invaild PNR Number'}
          );
        }
       
