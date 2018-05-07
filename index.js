@@ -40,7 +40,7 @@ server.post('/getDictionaryAPI', (req, res) => {
          //res.setHeader('Content-Type','application/json');
           console.log('if part');
          res.setHeader('content-type','application/json')
-         return res.send({speech: 'Invaild PNR Number',
+         return res.json({speech: 'Invaild PNR Number',
          displayText: 'Invaild PNR Number',
           source:'getDictionaryAPI'
                  }
@@ -48,7 +48,7 @@ server.post('/getDictionaryAPI', (req, res) => {
        }else{
          console.log('else');
          res.setHeader('content-type','application/json')
-         return res.send({speech: 'Invaild PNR Number',
+         return res.json({speech: 'Invaild PNR Number',
          displayText: 'Invaild PNR Number',
           source:'getDictionaryAPI'
                  });
