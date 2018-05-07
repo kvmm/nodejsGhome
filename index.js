@@ -29,7 +29,7 @@ server.post('/getDictionaryAPI', (req, res) => {
     if (error)
       console.log('---' + error);
     else {
-      console.log(body)
+      //console.log(body)
        var list = body;
         if (list && list.length >= 1) {
       //    var wordList = [];
@@ -40,7 +40,9 @@ server.post('/getDictionaryAPI', (req, res) => {
          //res.setHeader('Content-Type','application/json');
          res.setHeader('content-type','application/json')
          return res.send({speech: 'Invaild PNR Number',
-         displayText: 'Invaild PNR Number'}
+         displayText: 'Invaild PNR Number',
+          source:'getDictionaryAPI'
+                 }
          );
        }
       
