@@ -30,13 +30,13 @@ server.post('/getDictionaryAPI', (req, res) => {
       console.log('---' + error);
     else {
       console.log(body)
-      var list = body;
-       if (list && list.length >= 1) {
-         var wordList = [];
-         for (item in list) {
-           var info = list[item];
-           wordList.push(info);
-         }
+      // var list = body;
+      //  if (list && list.length >= 1) {
+      //    var wordList = [];
+      //    for (item in list) {
+      //      var info = list[item];
+      //      wordList.push(info);
+      //    }
          //res.setHeader('Content-Type','application/json');
          res.setHeader('content-type','application/json')
          return res.send({speech: 'Invaild PNR Number',
