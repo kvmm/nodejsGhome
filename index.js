@@ -43,8 +43,8 @@ server.post('/getDictionaryAPI', (req, res) => {
         console.log('if part--',word);
         //res.setHeader('content-type','application/json');
         return res.json({
-          speech: 'Invaild PNR Number',
-          displayText: 'Invaild PNR Number',
+          speech: 'Just for testing purpose',
+          displayText: 'sample code here',
           source: 'getDictionaryAPI'
         });
       } else {
