@@ -15,6 +15,13 @@ server.post('/getDictionaryAPI', (req, res) => {
 
   var type = req.body.result.parameters.type;
   var word = req.body.result.parameters.word;
+  
+  if(type == 'synonym' ){
+     type = 'synonyms';
+     }
+  if(type == 'antonym'){
+    type = 'antonyms';
+  }
 
   var service = {
     method: 'GET',
