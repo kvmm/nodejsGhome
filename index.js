@@ -13,8 +13,8 @@ server.use(bodyParser.json());
 
 server.post('/getDictionaryAPI', (req, res) => {
 
-  var type = req.headers.type;
-  var word = req.headers.word;
+  var type = req.body.result.parameters.type;
+  var word = req.body.result.parameters.word;
 
   var service = {
     method: 'GET',
