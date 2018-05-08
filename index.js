@@ -12,10 +12,10 @@ server.use(bodyParser.json());
 
 
 server.post('/getDictionaryAPI', (req, res) => {
-  //console.log(req.headers)
-  var type = 'synonyms';
-  //var word = req.headers.word;
+
+  var type = req.headers.type;
   var word = req.headers.word;
+
   var service = {
     method: 'GET',
     url: 'https://od-api.oxforddictionaries.com:443/api/v1/entries/en/' + word + '/' + type,
@@ -30,34 +30,68 @@ server.post('/getDictionaryAPI', (req, res) => {
     if (error)
       console.log('---' + error);
     else {
-      //console.log(body)
-      var list = body;
-      if (list && list.length >= 1) {
-        //    var wordList = [];
-        //    for (item in list) {
-        //      var info = list[item];
-        //      wordList.push(info);
-        //    }
-        //res.setHeader('Content-Type','application/json');
-        //console.log(body);
-        console.log('if part--',word);
-        //res.setHeader('content-type','application/json');
-        return res.json({
-          speech: 'Just for testing purpose',
-          displayText: 'sample code here',
-          source: 'getDictionaryAPI'
-        });
-      } else {
-        console.log('else');
-        res.setHeader('content-type', 'application/json')
-        return res.json({
-          speech: 'Invaild PNR Number',
-          displayText: 'Invaild PNR Number',
-          source: 'getDictionaryAPI'
-        });
-      }
+      var list = JSON.parse(body);
+      var wordList = [];
+      console.log('lll', list.length)
+      if (type == 'antonyms') {
+        if (list) {
+          var obj = list.results[0].lexicalEntries[0].entries[0].senses;
 
-      //res.send( body  );
+          for (var i = 0; i < obj.length; i++) {
+            var obj2 = obj[i];
+            for (var j = 0; j < obj2.antonyms.length; j++) {
+              if (obj2.antonyms[j].text)
+                console.log(obj2.antonyms[j].text);
+              wordList.push(obj2.antonyms[j].text)
+            }
+          }
+
+          console.log('if part--', word);
+          res.setHeader('content-type', 'application/json');
+          return res.json({
+            speech: 'the ' + type + ' of the word ' + word + ' is ' + wordList.toString(),
+            displayText: 'the ' + type + ' of the word ' + word + ' is ' + wordList.toString(),
+            source: 'getDictionaryAPI'
+          });
+        } else {
+          console.log('else');
+          res.setHeader('content-type', 'application/json')
+          return res.json({
+            speech: 'Invaild PNR Number',
+            displayText: 'Invaild PNR Number',
+            source: 'getDictionaryAPI'
+          });
+        };
+      } else {
+        if (list) {
+          var obj = list.results[0].lexicalEntries[0].entries[0].senses;
+
+          for (var i = 0; i < obj.length; i++) {
+            var obj2 = obj[i];
+            for (var j = 0; j < obj2.synonyms.length; j++) {
+              if (obj2.synonyms[j].text)
+                console.log(obj2.synonyms[j].text);
+              wordList.push(obj2.synonyms[j].text)
+            }
+          }
+
+          console.log('if part--', word);
+          res.setHeader('content-type', 'application/json');
+          return res.json({
+            speech: 'the ' + type + ' of the word ' + word + ' is ' + wordList.toString(),
+            displayText: 'the ' + type + ' of the word ' + word + ' is ' + wordList.toString(),
+            source: 'getDictionaryAPI'
+          });
+        } else {
+          console.log('else');
+          res.setHeader('content-type', 'application/json')
+          return res.json({
+            speech: 'Invaild PNR Number',
+            displayText: 'Invaild PNR Number',
+            source: 'getDictionaryAPI'
+          });
+        }
+      }
     }
   });
 });
