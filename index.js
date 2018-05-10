@@ -77,7 +77,7 @@ server.post('/getDictionaryAPI', (req, res) => {
             var obj2 = obj[i];
             for (var j = 0; j < obj2.synonyms.length; j++) {
               if (obj2.synonyms[j].text)
-                console.log(obj2.synonyms[j].text);
+               //console.log(obj2.synonyms[j].text);
               wordList.push(obj2.synonyms[j].text)
             }
           }
@@ -93,8 +93,8 @@ server.post('/getDictionaryAPI', (req, res) => {
           console.log('else');
           res.setHeader('content-type', 'application/json')
           return res.json({
-            speech: 'Invaild PNR Number',
-            displayText: 'Invaild PNR Number',
+            speech: 'Invaild text',
+            displayText: 'Invaild text',
             source: 'getDictionaryAPI'
           });
         }
