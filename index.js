@@ -22,7 +22,7 @@ server.post('/getDictionaryAPI', (req, res) => {
   if(type == 'antonym'){
     type = 'antonyms';
   }
-
+  console.log(type,'------',word);
   var service = {
     method: 'GET',
     url: 'https://od-api.oxforddictionaries.com:443/api/v1/entries/en/' + word + '/' + type,
@@ -39,7 +39,7 @@ server.post('/getDictionaryAPI', (req, res) => {
     else {
       var list = JSON.parse(body);
       var wordList = [];
-      console.log('lll', list.length)
+      //console.log('lll', list.length)
       if (type == 'antonyms') {
         if (list) {
           var obj = list.results[0].lexicalEntries[0].entries[0].senses;
