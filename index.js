@@ -20,7 +20,7 @@ server.post('/getDictionaryAPI', (req, res) => {
      type = 'synonyms';
      }
   console.log('--',type);
-  if(type == 'antonym'){
+  if(type == 'antonym' || type == 'Antonyms' || type == 'Antonym'){
     type = 'antonyms';
   }
   
