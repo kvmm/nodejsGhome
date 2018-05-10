@@ -19,9 +19,11 @@ server.post('/getDictionaryAPI', (req, res) => {
   if(type == 'synonym' ){
      type = 'synonyms';
      }
+  console.log('--',type);
   if(type == 'antonym'){
     type = 'antonyms';
   }
+  
   console.log(type,'------',word);
   var service = {
     method: 'GET',
