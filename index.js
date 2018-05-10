@@ -48,7 +48,7 @@ server.post('/getDictionaryAPI', (req, res) => {
             var obj2 = obj[i];
             for (var j = 0; j < obj2.antonyms.length; j++) {
               if (obj2.antonyms[j].text)
-                console.log(obj2.antonyms[j].text);
+                //console.log(obj2.antonyms[j].text);
               wordList.push(obj2.antonyms[j].text)
             }
           }
